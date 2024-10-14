@@ -1,0 +1,1 @@
+// dùng làm Tạo ra màn hình chính của ứng dụng với nhiều tab khác nhau, đồng thời hiển thị một hộp thoại yêu cầu người dùng đặt bàn khi khởi chạy ứng dụng. Hộp thoại này có hai lựa chọn: đặt bàn ngay hoặc làm sau
