@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../phoneLogin/phone_login_screen.dart';
-
+import '../../auth/sign_in_screen.dart';
 import '../../../widgets/constants.dart';
 
 class SignUpForm extends StatefulWidget {
@@ -12,7 +11,6 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
-
   bool _obscureText = true;
 
   @override
@@ -37,6 +35,16 @@ class _SignUpFormState extends State<SignUpForm> {
             textInputAction: TextInputAction.next,
             keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration(hintText: "Email Address"),
+          ),
+          const SizedBox(height: defaultPadding),
+
+          // Phone Number Field
+          TextFormField(
+            validator: phoneValidator.call,
+            onSaved: (value) {},
+            textInputAction: TextInputAction.next,
+            keyboardType: TextInputType.phone,
+            decoration: const InputDecoration(hintText: "Phone Number"),
           ),
           const SizedBox(height: defaultPadding),
 
@@ -81,13 +89,14 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
           ),
           const SizedBox(height: defaultPadding),
+
           // Sign Up Button
           ElevatedButton(
             onPressed: () {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (_) => const PhoneLoginScreen(),
+                  builder: (_) => const SignInScreen(),
                 ),
               );
             },

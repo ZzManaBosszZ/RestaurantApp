@@ -22,6 +22,12 @@ const EdgeInsets kTextFieldPadding = EdgeInsets.symmetric(
   vertical: defaultPadding,
 );
 
+final phoneValidator = MultiValidator([
+  RequiredValidator(errorText: 'Phone number is required'),
+  PatternValidator(r'^[0-9]+$', errorText: 'Phone number must contain only digits'),
+  MinLengthValidator(10, errorText: 'Phone number must be at least 10 digits long')
+]);
+
 // Text Field Decoration
 const OutlineInputBorder kDefaultOutlineInputBorder = OutlineInputBorder(
   borderRadius: BorderRadius.all(Radius.circular(6)),
